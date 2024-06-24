@@ -15,8 +15,14 @@ const specialDefenseElement = document.getElementById("special-defense");
 const speedElement = document.getElementById("speed");
 const picture = document.getElementById("sprite");
 
+inputElement.addEventListener("keypress", (event)=>{
+  if(event.key === "Enter"){
+    search()
+  };
+});
+searchButtonElement.addEventListener("click", ()=> search());
 
-searchButtonElement.addEventListener("click",async()=>{
+const search = async function() {
   typesElement.appendChild(type2Element);
   nameElement.innerText = "";
   idElement.innerText = "";
@@ -60,4 +66,4 @@ searchButtonElement.addEventListener("click",async()=>{
   else {
     alert("Pokémon not found")
   }
-  });
+  };
