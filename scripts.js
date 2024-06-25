@@ -23,7 +23,6 @@ inputElement.addEventListener("keypress", (event)=>{
 searchButtonElement.addEventListener("click", ()=> search());
 
 const search = async function() {
-  typesElement.appendChild(type2Element);
   nameElement.innerText = "";
   idElement.innerText = "";
   weightElement.innerText = ""; 
@@ -50,9 +49,6 @@ const search = async function() {
     type1Element.innerText = data2.types[0].type.name.toUpperCase();
     if(data2.types[1]){
       type2Element.innerText = data2.types[1].type.name.toUpperCase();
-    }
-    else {
-      nameElement.appendChild(type2Element);
     };
     hpElement.innerText = data2.stats[0].base_stat;
     attackElement.innerText = data2.stats[1].base_stat;
@@ -61,9 +57,8 @@ const search = async function() {
     specialDefenseElement.innerText = data2.stats[4].base_stat;
     speedElement.innerText = data2.stats[5].base_stat;
     picture.src = data2.sprites.front_default;
-    //console.log(foundPokemon, data2);
   }
   else {
     alert("Pokémon not found")
-  }
+  };
   };
