@@ -5,7 +5,7 @@ body{
   background-color: darkred;
   display:flex;
   flex-direction: column;
-  width: 50%;
+  width: 300px;
   margin: 100px auto auto auto;
   padding: 10px;
   align-items: center;
@@ -18,7 +18,7 @@ body{
 }
 #readout {
   background-color: grey;
-  width: 85%;
+  width: 75%;
   height: 355px;
   border: solid lightgrey;
   border-radius: 25px;
@@ -26,6 +26,7 @@ body{
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin: 10px 0px 10px 0px;
 }
 #sprite{
   background-color: black;
@@ -35,4 +36,5 @@ body{
   align-self: center;
   padding: 0;
   margin: auto;
+  border: solid 2px rgb(255, 255, 255);
 }
