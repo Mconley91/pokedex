@@ -14,6 +14,8 @@ const specialAttackElement = document.getElementById("special-attack");
 const specialDefenseElement = document.getElementById("special-defense");
 const speedElement = document.getElementById("speed");
 const picture = document.getElementById("sprite");
+let type1Value;
+let type2Value;
 
 inputElement.addEventListener("keypress", (event)=>{
   if(event.key === "Enter"){
@@ -28,7 +30,9 @@ const search = async function() {
   weightElement.innerText = ""; 
   heightElement.innerText = "";
   type1Element.innerText = "";
+  type1Element.className = "";
   type2Element.innerText = "";
+  type2Element.className = "";
   hpElement.innerText = "";
   attackElement.innerText = "";
   defenseElement.innerText = "";
@@ -46,10 +50,16 @@ const search = async function() {
     const data2 = await response2.json();
     weightElement.innerText = data2.weight; 
     heightElement.innerText = data2.height;
-    type1Element.innerText = data2.types[0].type.name.toUpperCase();
+    //type logic block
+    type1Value = data2.types[0].type.name.toUpperCase();
+    type1Element.innerText = type1Value;
+    typeColors(type1Element);
     if(data2.types[1]){
-      type2Element.innerText = data2.types[1].type.name.toUpperCase();
+      type2Value = data2.types[1].type.name.toUpperCase();
+      type2Element.innerText = type2Value;
+      typeColors(type2Element);
     };
+    //
     hpElement.innerText = data2.stats[0].base_stat;
     attackElement.innerText = data2.stats[1].base_stat;
     defenseElement.innerText = data2.stats[2].base_stat;
@@ -61,4 +71,71 @@ const search = async function() {
   else {
     alert("Pokémon not found")
   };
+  };
+
+  const typeColors = (element)=>{
+    let type;
+    if(element === type1Element){
+      type = type1Value;
+    }
+    else{
+      type = type2Value;
+    };
+    element.classList.add("type");
+    switch (type){
+      case "NORMAL":
+        element.classList.add("normal");
+      break;
+      case "FIGHTING":
+        element.classList.add("fighting");
+      break;
+      case "FLYING":
+        element.classList.add("flying");
+      break;
+      case "POISON":
+        element.classList.add("poison");
+      break;
+      case "GROUND":
+        element.classList.add("ground");
+      break;
+      case "ROCK":
+        element.classList.add("rock");
+      break;
+      case "BUG":
+        element.classList.add("bug");
+      break;
+      case "GHOST":
+        element.classList.add("ghost");
+      break;
+      case "STEEL":
+        element.classList.add("steel");
+      break;
+      case "FIRE":
+        element.classList.add("fire");
+      break;
+      case "WATER":
+        element.classList.add("water");
+      break;
+      case "GRASS":
+        element.classList.add("grass");
+      break;
+      case "ELECTRIC":
+        element.classList.add("electric");
+      break;
+      case "PSYCHIC":
+        element.classList.add("psychic");
+      break;
+      case "ICE":
+        element.classList.add("ice");
+      break;
+      case "DRAGON":
+        element.classList.add("dragon");
+      break;
+      case "DARK":
+        element.classList.add("dark");
+      break;
+      case "FAIRY":
+        element.classList.add("fairy");
+      break;
+    }
   };
