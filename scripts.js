@@ -42,7 +42,8 @@ const search = async function() {
   picture.src = "";
   const response = await fetch("https://pokeapi-proxy.freecodecamp.rocks/api/pokemon");
   const data = await response.json();
-  const foundPokemon = data.results.find((i)=>i.name === inputElement.value.toLowerCase() || i.id === Number(inputElement.value));
+  //added reverse name detection per cynthia's request
+  const foundPokemon = data.results.find((i)=>i.name === inputElement.value.toLowerCase() || i.id === Number(inputElement.value) || i.name === inputElement.value.split('').reverse().join('').toLowerCase());
   if (foundPokemon){
     nameElement.innerText = foundPokemon.name.charAt(0).toUpperCase()+ foundPokemon.name.slice(1);
     idElement.innerText = foundPokemon.id;
@@ -136,6 +137,12 @@ const search = async function() {
       break;
       case "FAIRY":
         element.classList.add("fairy");
+      break;
+      case "STELLAR":
+        element.classList.add("stellar");
+      break;
+      case "???":
+        element.classList.add("unknown");
       break;
     }
   };

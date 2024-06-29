@@ -17,16 +17,21 @@
   --dragon: rgb(35, 35, 136);
   --dark: rgb(24, 23, 23);
   --fairy: rgb(223, 103, 213);
+  --stellar: rgb(80, 141, 133);
+  --unknown: rgb(80, 141, 126);
 }
 body{
-  background-color: grey;
+  background-color: rgb(0, 0, 0);
+}
+#search-input{
+  text-align: center;
 }
 #pokedex {
   background-color: darkred;
   display:flex;
   flex-direction: column;
   width: 300px;
-  margin: 100px auto auto auto;
+  margin: 30px auto auto auto;
   padding: 10px;
   align-items: center;
   border: rgb(90, 16, 16) 2px solid;
@@ -39,7 +44,6 @@ body{
 #readout {
   background-color: grey;
   width: 75%;
-  height: 400px;
   border: solid lightgrey;
   border-radius: 25px;
   padding: 15px;
@@ -65,9 +69,25 @@ body{
   color: white;
   padding: 0.75px;
   border: solid white 1px;
+  text-shadow: #000 1px 1px 1px;
 }
 .item{
   margin: 1.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(53, 53, 52);
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+  border: solid rgb(19, 19, 19) 1px;
+}
+.attributes{
+  width: 150px;
+  height: 20px;
+  border-radius:5px;
+  margin:2px 5px 2px 0px;
+  color: rgb(189, 186, 186);
 }
 .normal{
   background-color: var(--normal);
@@ -122,4 +142,10 @@ body{
 }
 .fairy{
   background-color: var(--fairy);
+}
+.stellar{
+  background-color: var(--stellar);
+}
+.unknown{
+  background-color: var(--unknown);
 }
